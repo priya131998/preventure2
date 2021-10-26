@@ -51,6 +51,27 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 22),
         ),
       ),
+      body: Center(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: deviceHeight(context) * 0.05,
+              ),
+              //profile name
+              Container(
+                width: deviceWidth(context) * 0.90,
+                child: Text(
+                  'Hi John Doe',
+                  style: TextStyle(
+                      color: Colors.white.withOpacity(0.8), fontSize: 25),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
