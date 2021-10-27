@@ -66,6 +66,18 @@ class Item1 extends StatelessWidget {
                       color: Colors.black.withOpacity(0.8), fontSize: 20),
                 ),
               ),
+              Container(
+                width: deviceWidth(context) * 0.90,
+
+                // margin: const EdgeInsets.only(bottom: 200.0),
+
+                margin: const EdgeInsets.only(top: 20.0),
+                child: Text(
+                  'Date: 20 Jun 2019',
+                  style: TextStyle(
+                      color: Colors.black.withOpacity(0.8), fontSize: 12.5),
+                ),
+              ),
             ],
           ),
         ),
