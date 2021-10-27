@@ -182,6 +182,36 @@ class Item1 extends StatelessWidget {
                             ),
                           ),
                         ),
+                        Container(
+                          alignment: Alignment.center,
+                          width: deviceWidth(context) * 0.17,
+                          height: deviceHeight(context) * 0.05,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Color(0xFF444442),
+                                radius: 10,
+                                child: Icon(
+                                  Icons.add,
+                                  color: Color(0xfff5d20f),
+                                  size: 15,
+                                ),
+                              ),
+                              Text('Sport',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500)),
+                            ],
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(0xfff5d20f),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(12.0),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],
