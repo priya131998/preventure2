@@ -78,6 +78,17 @@ class Item1 extends StatelessWidget {
                       color: Colors.black.withOpacity(0.8), fontSize: 12.5),
                 ),
               ),
+              SizedBox(
+                height: deviceHeight(context) * 0.005,
+              ),
+              Container(
+                padding: EdgeInsets.all(15.0),
+                // margin: const EdgeInsets.only(top: 90.0),
+                child: YoutubePlayer(
+                  controller: _controller,
+                  liveUIColor: Colors.amber,
+                ),
+              ),
             ],
           ),
         ),
