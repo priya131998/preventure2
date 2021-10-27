@@ -83,6 +83,61 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+
+  Card buildCard1() {
+    //add an image
+    var cardImage = NetworkImage(
+        'https://storage.googleapis.com/artifacts.test-dashboard-e0a76.appspot.com/news-feed/article1.png');
+    //add a title below the image
+    var supportingText = 'Assumptions we make about risk';
+    return Card(
+      //add shadow
+      elevation: 10.0,
+      margin: EdgeInsets.fromLTRB(18, 0, 18, 16),
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(10.0),
+            height: 200.0,
+            child: Ink.image(
+              image: cardImage,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(16.0),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              supportingText,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          ButtonBar(
+            children: [
+              TextButton(
+                child: Text(
+                  'WATCH LATER',
+                  style: TextStyle(
+                    color: Color(0xfff5d20f).withOpacity(1),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onPressed: () {/* ... */},
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
