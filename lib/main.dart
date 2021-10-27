@@ -79,6 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                 height: deviceHeight(context) * 0.05,
               ),
+              buildCard1(),
+              buildCard2(),
             ],
           ),
         ),
@@ -91,6 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  //first item
   Card buildCard1() {
     //add an image
     var cardImage = NetworkImage(
@@ -110,6 +113,51 @@ class _MyHomePageState extends State<MyHomePage> {
               image: cardImage,
               fit: BoxFit.cover,
             ),
+          ),
+          Container(
+            padding: EdgeInsets.all(16.0),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              supportingText,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          ButtonBar(
+            children: [
+              TextButton(
+                child: Text(
+                  'WATCH LATER',
+                  style: TextStyle(
+                    color: Color(0xfff5d20f).withOpacity(1),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onPressed: () {/* ... */},
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Card buildCard2() {
+    //add a title below the placeholder
+    var supportingText =
+        'Correlations between manual handling training and sports training';
+    return Card(
+      //add shadow
+      elevation: 10.0,
+      margin: EdgeInsets.fromLTRB(18, 0, 18, 16),
+      child: Column(
+        children: [
+          Container(
+            child: Placeholder(),
+            padding: EdgeInsets.all(10.0),
+            height: 200.0,
           ),
           Container(
             padding: EdgeInsets.all(16.0),
