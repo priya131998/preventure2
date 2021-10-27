@@ -81,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               buildCard1(),
               buildCard2(),
+              buildCard3(),
             ],
           ),
         ),
@@ -144,6 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  //second item
   Card buildCard2() {
     //add a title below the placeholder
     var supportingText =
@@ -162,6 +164,52 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             padding: EdgeInsets.all(16.0),
             alignment: Alignment.centerLeft,
+            child: Text(
+              supportingText,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          ButtonBar(
+            children: [
+              TextButton(
+                child: Text(
+                  'WATCH LATER',
+                  style: TextStyle(
+                    color: Color(0xfff5d20f).withOpacity(1),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onPressed: () {/* ... */},
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  //third item
+  Card buildCard3() {
+    //add a title below the placeholder
+    var supportingText =
+        'New Feature: Track Slip/Trip/Fall and Lower Limb Injury Risks';
+    return Card(
+      //add shadow
+      elevation: 10.0,
+      margin: EdgeInsets.fromLTRB(18, 0, 18, 16),
+      child: Column(
+        children: [
+          Container(
+            child: Placeholder(),
+            padding: EdgeInsets.all(10.0),
+            height: 200.0,
+          ),
+          Container(
+            padding: EdgeInsets.all(16.0),
+            alignment: Alignment.bottomLeft,
             child: Text(
               supportingText,
               style: TextStyle(
