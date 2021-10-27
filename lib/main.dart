@@ -68,6 +68,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white.withOpacity(0.8), fontSize: 25),
                 ),
               ),
+              Container(
+                width: deviceWidth(context) * 0.90,
+                child: Text(
+                  'you have viewed ' '$_counter ' 'of 10 videos',
+                  style: TextStyle(
+                      color: Colors.white.withOpacity(0.8), fontSize: 18),
+                ),
+              ),
+              SizedBox(
+                height: deviceHeight(context) * 0.05,
+              ),
             ],
           ),
         ),
