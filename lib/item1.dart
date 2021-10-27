@@ -103,6 +103,20 @@ class Item1 extends StatelessWidget {
                       color: Colors.black.withOpacity(0.8), fontSize: 15),
                 ),
               ),
+              SizedBox(
+                height: deviceHeight(context) * 0.03,
+              ),
+              Container(
+                width: deviceWidth(context) * 0.90,
+                height: deviceHeight(context) * 0.12,
+                // margin: const EdgeInsets.only(top: 350.0),
+                decoration: BoxDecoration(
+                  color: Color(0xFF444442),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10.0),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
