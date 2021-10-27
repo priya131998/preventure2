@@ -89,6 +89,20 @@ class Item1 extends StatelessWidget {
                   liveUIColor: Colors.amber,
                 ),
               ),
+              SizedBox(
+                height: deviceHeight(context) * 0.03,
+              ),
+              // Container(
+              //     margin: const EdgeInsets.only(top: 500.0), child: Toggle()),
+              Container(
+                width: deviceWidth(context) * 0.90,
+                // margin: const EdgeInsets.only(top: 350.0),
+                child: Text(
+                  'One huge difference between workers conducting MH tasks and athletes training in the gym is the purpose of the task; athletes are generating maximal force to improve strength, workers are completing the task to get their job done.',
+                  style: TextStyle(
+                      color: Colors.black.withOpacity(0.8), fontSize: 15),
+                ),
+              ),
             ],
           ),
         ),
