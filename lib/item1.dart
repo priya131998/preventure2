@@ -48,6 +48,28 @@ class Item1 extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
+      body: Center(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: <Widget>[
+              //profile name
+              // SizedBox(
+              //   height: deviceHeight(context) * 0.02,
+              // ),
+              Container(
+                width: deviceWidth(context) * 0.90,
+                // margin: const EdgeInsets.only(bottom: 160.0),
+                child: Text(
+                  'Correlations between manual handling training and sports training',
+                  style: TextStyle(
+                      color: Colors.black.withOpacity(0.8), fontSize: 20),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
