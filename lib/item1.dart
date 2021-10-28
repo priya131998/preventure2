@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Hide the debug banner
       debugShowCheckedModeBanner: false,
-
       title: 'Preventure',
       home: Item1(),
     );
