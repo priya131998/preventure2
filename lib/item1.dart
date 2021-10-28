@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:preventure2/main.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 void main() {
@@ -45,7 +46,15 @@ class Item1 extends StatelessWidget {
             color: Colors.black,
             size: 30,
           ),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MyHomePage(
+                        title: '',
+                      )),
+            );
+          },
         ),
       ),
       body: Center(
@@ -88,6 +97,30 @@ class Item1 extends StatelessWidget {
                   controller: _controller,
                   liveUIColor: Colors.amber,
                 ),
+              ),
+              Stack(
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          'Mark as watched',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 11.5, fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        SizedBox(width: 50.0, height: 20.0, child: Toggle()),
+                      ],
+                    ),
+                    // ],
+                  ),
+                  //),
+                ],
               ),
               SizedBox(
                 height: deviceHeight(context) * 0.03,

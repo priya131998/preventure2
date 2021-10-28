@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:preventure2/item1.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,14 +28,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
@@ -71,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 width: deviceWidth(context) * 0.90,
                 child: Text(
-                  'you have viewed ' '$_counter ' 'of 10 videos',
+                  'you have viewed 0 of 10 videos',
                   style: TextStyle(
                       color: Colors.white.withOpacity(0.8), fontSize: 18),
                 ),
@@ -87,61 +80,110 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
     );
   }
 
   //first item
+
   Card buildCard1() {
     //add an image
     var cardImage = NetworkImage(
         'https://storage.googleapis.com/artifacts.test-dashboard-e0a76.appspot.com/news-feed/article1.png');
     //add a title below the image
+
     var supportingText = 'Assumptions we make about risk';
     return Card(
       //add shadow
       elevation: 10.0,
       margin: EdgeInsets.fromLTRB(18, 0, 18, 16),
-      child: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.all(10.0),
-            height: 200.0,
-            child: Ink.image(
-              image: cardImage,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(16.0),
-            alignment: Alignment.centerLeft,
-            child: Text(
-              supportingText,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-            ),
-          ),
-          ButtonBar(
-            children: [
-              TextButton(
-                child: Text(
-                  'WATCH LATER',
-                  style: TextStyle(
-                    color: Color(0xfff5d20f).withOpacity(1),
-                    fontWeight: FontWeight.bold,
-                  ),
+      child: GestureDetector(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return Dialog(
+                // title: Text("Alert Dialog"),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
+                child: Container(
+                  height: 100,
+                  child: Column(children: <Widget>[
+                    TextField(
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "This item doesn't consist of any video"),
+                    ),
+                    ElevatedButton(
+                      // color: Colors.red,
+                      child: Text(
+                        'Next',
+                        style: TextStyle(
+                          color: Color(0xfff5d20f),
+                        ),
+                      ),
+                      style:
+                          ElevatedButton.styleFrom(primary: Color(0xFF444442)),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Item4()),
+                        );
+                      },
+                    ),
+                  ]),
                 ),
-                onPressed: () {/* ... */},
+              );
+            },
+          );
+        },
+
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(10.0),
+              height: 200.0,
+              child: Ink.image(
+                image: cardImage,
+                fit: BoxFit.cover,
               ),
-            ],
-          )
-        ],
+            ),
+            Container(
+              padding: EdgeInsets.all(16.0),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                supportingText,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            ButtonBar(
+              children: [
+                TextButton(
+                  child: Text(
+                    'WATCH LATER',
+                    style: TextStyle(
+                      color: Color(0xFF444442).withOpacity(1),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onPressed: () {/* ... */},
+                ),
+              ],
+            ),
+          ],
+          //),
+        ),
+        // onTap: () {
+        //   Navigator.of(context)
+        //       .push(MaterialPageRoute(builder: (context) => Item1()));
+        // },
+        // onTap: () => Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => Item1()),
+        // ),
       ),
     );
   }
@@ -155,39 +197,47 @@ class _MyHomePageState extends State<MyHomePage> {
       //add shadow
       elevation: 10.0,
       margin: EdgeInsets.fromLTRB(18, 0, 18, 16),
-      child: Column(
-        children: [
-          Container(
-            child: Placeholder(),
-            padding: EdgeInsets.all(10.0),
-            height: 200.0,
-          ),
-          Container(
-            padding: EdgeInsets.all(16.0),
-            alignment: Alignment.centerLeft,
-            child: Text(
-              supportingText,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Item1()),
+          );
+        },
+        child: Column(
+          children: [
+            Container(
+              child: Placeholder(),
+              padding: EdgeInsets.all(10.0),
+              height: 200.0,
+            ),
+            Container(
+              padding: EdgeInsets.all(16.0),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                supportingText,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ),
-          ),
-          ButtonBar(
-            children: [
-              TextButton(
-                child: Text(
-                  'WATCH LATER',
-                  style: TextStyle(
-                    color: Color(0xfff5d20f).withOpacity(1),
-                    fontWeight: FontWeight.bold,
+            ButtonBar(
+              children: [
+                TextButton(
+                  child: Text(
+                    'WATCH LATER',
+                    style: TextStyle(
+                      color: Color(0xFF444442).withOpacity(1),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  onPressed: () {/* ... */},
                 ),
-                onPressed: () {/* ... */},
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -201,39 +251,47 @@ class _MyHomePageState extends State<MyHomePage> {
       //add shadow
       elevation: 10.0,
       margin: EdgeInsets.fromLTRB(18, 0, 18, 16),
-      child: Column(
-        children: [
-          Container(
-            child: Placeholder(),
-            padding: EdgeInsets.all(10.0),
-            height: 200.0,
-          ),
-          Container(
-            padding: EdgeInsets.all(16.0),
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              supportingText,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Item2()),
+          );
+        },
+        child: Column(
+          children: [
+            Container(
+              child: Placeholder(),
+              padding: EdgeInsets.all(10.0),
+              height: 200.0,
+            ),
+            Container(
+              padding: EdgeInsets.all(16.0),
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                supportingText,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ),
-          ),
-          ButtonBar(
-            children: [
-              TextButton(
-                child: Text(
-                  'WATCH LATER',
-                  style: TextStyle(
-                    color: Color(0xfff5d20f).withOpacity(1),
-                    fontWeight: FontWeight.bold,
+            ButtonBar(
+              children: [
+                TextButton(
+                  child: Text(
+                    'WATCH LATER',
+                    style: TextStyle(
+                      color: Color(0xFF444442).withOpacity(1),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  onPressed: () {/* ... */},
                 ),
-                onPressed: () {/* ... */},
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -244,41 +302,49 @@ class _MyHomePageState extends State<MyHomePage> {
     var supportingText = "Episode 23: 'Prevent Deconditioning' Video Series";
     return Card(
       //add shadow
-      elevation: 10.0,
       margin: EdgeInsets.fromLTRB(18, 0, 18, 16),
-      child: Column(
-        children: [
-          Container(
-            child: Placeholder(),
-            padding: EdgeInsets.all(10.0),
-            height: 200.0,
-          ),
-          Container(
-            padding: EdgeInsets.all(16.0),
-            alignment: Alignment.centerLeft,
-            child: Text(
-              supportingText,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+      elevation: 10.0,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Item3()),
+          );
+        },
+        child: Column(
+          children: [
+            Container(
+              child: Placeholder(),
+              padding: EdgeInsets.all(10.0),
+              height: 200.0,
+            ),
+            Container(
+              padding: EdgeInsets.all(16.0),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                supportingText,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ),
-          ),
-          ButtonBar(
-            children: [
-              TextButton(
-                child: Text(
-                  'WATCH LATER',
-                  style: TextStyle(
-                    color: Color(0xfff5d20f).withOpacity(1),
-                    fontWeight: FontWeight.bold,
+            ButtonBar(
+              children: [
+                TextButton(
+                  child: Text(
+                    'WATCH LATER',
+                    style: TextStyle(
+                      color: Color(0xFF444442).withOpacity(1),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  onPressed: () {/* ... */},
                 ),
-                onPressed: () {/* ... */},
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
